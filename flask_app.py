@@ -13,7 +13,7 @@ def sql_database():
     results = sql_query(''' SELECT * FROM data_table''')
     msg = 'SELECT * FROM data_table'
     return render_template('sqldatabase.html', results=results, msg=msg)   
-@app.route('/insert',methods = ['POST', 'GET']) #this is when user submits an insert
+@app.route('/insert',methods = ['POST', 'GET'])
 def sql_datainsert():
     from functions.sqlquery import sql_edit_insert, sql_query
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def sql_datainsert():
     results = sql_query(''' SELECT * FROM data_table''')
     msg = 'INSERT INTO data_table (serv_id,deg_min,deg_max,sleep_min,sleep_max,extra) VALUES ('+serv_id+','+deg_min+','+deg_max+','+sleep_min+','+sleep_max+','+extra+')'
     return render_template('sqldatabase.html', results=results, msg=msg) 
-@app.route('/delete',methods = ['POST', 'GET']) #this is when user clicks delete link
+@app.route('/delete',methods = ['POST', 'GET'])
 def sql_datadelete():
     from functions.sqlquery import sql_delete, sql_query
     if request.method == 'GET':
@@ -37,7 +37,7 @@ def sql_datadelete():
     results = sql_query(''' SELECT * FROM data_table''')
     msg = 'DELETE FROM data_table WHERE serv_id = ' + fname + ' and deg_min = ' + lname
     return render_template('sqldatabase.html', results=results, msg=msg)
-@app.route('/query_edit',methods = ['POST', 'GET']) #this is when user clicks edit link
+@app.route('/query_edit',methods = ['POST', 'GET'])
 def sql_editlink():
     from functions.sqlquery import sql_query, sql_query2
     if request.method == 'GET':
@@ -46,7 +46,7 @@ def sql_editlink():
         eresults = sql_query2(''' SELECT * FROM data_table where serv_id = ? and deg_min = ?''', (efname,elname))
     results = sql_query(''' SELECT * FROM data_table''')
     return render_template('sqldatabase.html', eresults=eresults, results=results)
-@app.route('/edit',methods = ['POST', 'GET']) #this is when user submits an edit
+@app.route('/edit',methods = ['POST', 'GET']) 
 def sql_dataedit():
     from functions.sqlquery import sql_edit_insert, sql_query
     if request.method == 'POST':

@@ -25,7 +25,6 @@ conn = sqlite3.connect('/home/fabrice/servocontroller/servo.db',check_same_threa
 
 conn.row_factory = sqlite3.Row
 
-# Make a convenience function for running SQL queries
 def sql_query(query):
     cur = conn.cursor()
     cur.execute(query)

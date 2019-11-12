@@ -3,7 +3,7 @@
 import threading
 import time
 from functions.sqlquery import sql_query, sql_query2
-import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+import RPi.GPIO as GPIO 
 from adafruit_servokit import ServoKit
 
 # Set channels to the number of servo channels on your kit.
@@ -28,36 +28,23 @@ def button_callback(channel):
         threads.append(x)
         x.start()
     for result, thread in enumerate(threads):
-        #print("Main    : before joining thread %d.", index)
         thread.join()
     
     print("Done")
 
 
-GPIO.setwarnings(False) # Ignore warning for now
-GPIO.setmode(GPIO.BCM) # Use physical pin numbering
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.add_event_detect(17,GPIO.RISING,callback=button_callback,bouncetime=500)
 
-#
 
 if __name__ == "__main__":
 
     threads = list()
     while True:   
         a = 1
-    # for result in results:
-    #    x = threading.Thread(target=thread_servo, args=(result,))
-    #    threads.append(x)
-    #    x.start()
 
-   # for result, thread in enumerate(threads):
-        #print("Main    : before joining thread %d.", index)
-    #    thread.join()
-        #print(result["serv_id"])
-    
-    
-#message = input("Press enter to quit\n\n")
 
 GPIO.cleanup()
 
