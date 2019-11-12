@@ -1,0 +1,23 @@
+   <body>
+      <table border = 1>
+         <thead>
+            <td>Servo Id</td>
+            <td>deg_min</td>
+            <td>deg_max</td>
+            <td>sleep_min</td>
+            <td>sleep_max</td>
+            <td>extra</td>
+
+
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["serv_id"]}}</td>
+               <td>{{row["deg_min"]}}</td>
+               <td>{{row["deg_max"]}}</td>
+               <td>{{row["sleep_min"]}}</td>
+               <td>{{row["sleep_max"]}}</td>
+               <td>{{row["extra"]}}</td>	
+            </tr>
+         {% endfor %}
