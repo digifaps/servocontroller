@@ -11,7 +11,7 @@ import sqlite3
 #    os.remove('example.db')
 
 # Create a database
-conn = sqlite3.connect('example.db',check_same_thread=False)
+conn = sqlite3.connect('/home/fabrice/servocontroller/servo.db',check_same_thread=False)
 
 # Add the data to our database
 #data_table.to_sql('data_table', conn, dtype={
